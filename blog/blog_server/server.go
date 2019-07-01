@@ -18,7 +18,7 @@ import (
 
 	"github.com/mongodb/mongo-go-driver/mongo"
 
-	"github.com/simplesteph/grpc-go-course/blog/blogpb"
+	"github.com/mikedutuandu/grpc-go-course/blog/blogpb"
 	"google.golang.org/grpc"
 )
 
