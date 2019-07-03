@@ -8,17 +8,19 @@ import (
 	"os"
 	"os/signal"
 
-	"github.com/mongodb/mongo-go-driver/bson"
+	"go.mongodb.org/mongo-driver/bson"
 
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
 
-	"github.com/mongodb/mongo-go-driver/bson/primitive"
+	"go.mongodb.org/mongo-driver/bson/primitive"
 
-	"github.com/mongodb/mongo-go-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo"
+	"go.mongodb.org/mongo-driver/mongo/options"
 
 	"github.com/mikedutuandu/grpc-go-course/blog/blogpb"
+
 	"google.golang.org/grpc"
 )
 
@@ -58,7 +60,7 @@ func (*server) CreateBlog(ctx context.Context, req *blogpb.CreateBlogRequest) (*
 			fmt.Sprintf("Cannot convert to OID"),
 		)
 	}
-
+	
 	return &blogpb.CreateBlogResponse{
 		Blog: &blogpb.Blog{
 			Id:       oid.Hex(),
